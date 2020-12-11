@@ -1,0 +1,21 @@
+<div class="user-config">
+    <expension-item :title="fullName" :caption="email" :open="false" :icons="['fal', 'fa-user']" :level="0">
+        <q-item clickable :inset-level="0.5">
+            <q-item-section avatar>
+                <q-icon color="accent"  name="fal fa-key"></q-icon>
+            </q-item-section>
+            <q-item-section>
+                <q-item-label class="text-white">Change password</q-item-label>
+            </q-item-section>
+        </q-item>
+        <q-item clickable  :inset-level="0.5">
+            <q-item-section avatar>
+                <q-icon color="accent" name="fal fa-cogs"></q-icon>
+            </q-item-section>
+            <q-item-section>
+                <q-item-label class="text-white">User setings</q-item-label>
+            </q-item-section>
+        </q-item>
+    </expension-item>
+    <q-separator class="bg-white" />
+</div>

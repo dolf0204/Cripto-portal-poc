@@ -1,0 +1,12 @@
+@import "@/styles/quasar.scss";
+
+.navigation-item {
+    .q-item.active {
+        background-color: $secondary;
+        color: $primary;
+    }
+
+    .q-item {
+        color: $secondary;
+    }
+}

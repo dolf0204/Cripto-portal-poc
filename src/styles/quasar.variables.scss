@@ -1,0 +1,6 @@
+@import "./theme.scss";
+@import "~quasar-variables-styl";
+
+@mixin background {
+    background-color: $bgcolor;
+}

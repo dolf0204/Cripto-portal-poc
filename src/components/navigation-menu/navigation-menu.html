@@ -1,0 +1,19 @@
+<div class="navigation-menu">
+    <q-drawer
+        v-model="drawerState"
+        show-if-above
+        bordered
+        class="drawer"
+        >
+        <q-list>
+            <navigation-item
+                v-for="item in navigationListItems"
+                :icons="item.icons"
+                :title="item.title"
+                :link="item.link"
+                :caption="item.caption"
+                :childNodes="item.childNodes" >
+            </navigation-item>
+        </q-list>
+    </q-drawer>
+</div>

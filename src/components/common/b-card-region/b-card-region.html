@@ -1,0 +1,30 @@
+<div class="b-card-region">
+    <div class="flex flex-center">
+        <div class="fit row wrap justify-center">
+            <div class="col">
+                <q-card :class="{ 'strip': strip }">
+                    <q-item class="item title">
+                        <q-item-section>
+                            <div class="fit row wrap">
+                                <div class="col-sm-6 col-12">
+                                    <div class="text-h6 title text-primary">
+                                        <q-icon v-if="titleIcon" class="title-icon" :name="titleIcon"></q-icon>
+                                        {{ title }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-12">
+                                    <div class="row justify-end q-gutter-xs">
+                                        <slot name="buttons-right">
+                                        </slot>
+                                    </div>
+                                </div>
+                            </div>
+                        </q-item-section>
+                    </q-item>
+                    <q-separator v-if="!strip" color="primary" />
+                    <slot></slot>
+                </q-card>
+            </div>
+        </div>
+    </div>
+</div>

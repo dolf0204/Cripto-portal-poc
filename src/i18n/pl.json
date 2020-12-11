@@ -1,0 +1,74 @@
+{
+    "sidebar": {
+        "social-networks": "Social networks",
+        "social-networks-caption": "Facebook, Twitter...",
+        "facebook": "Facebook",
+        "facebook-caption": "Mark says hi!!",
+        "facebook-new-tab":"Facebook",
+        "facebook-new-tab-caption": "new tab",
+        "facebook-redirect":"Facebook",
+        "facebook-redirect-caption": "Redirect",
+        "github-new-tab": "GitHub",
+        "home": "Home",
+        "users": "Users",
+        "logout": "Logout"
+    },
+    "login": {
+        "title": "Login",
+        "username-propmt": "Username",
+        "password-propmt": "Password",
+        "btn-login": "Login"
+    },
+    "user-config": {
+        "logout": "Logout",
+        "change-password": "Change password"
+    },
+    "examples": {
+        "title": "Search example"
+    },
+    "general": {
+        "ok": "Ok",
+        "cancel": "Cancel",
+        "apply": "Apply",
+        "save": "Save",
+        "edit": "Edit",
+        "details": "Details",
+        "submit": "Submit",
+        "copy": "Copy",
+        "search": "Search",
+        "create": "Create",
+        "delete": "Delete",
+        "confirm": "Confirm",
+        "close": "Close",
+        "add": "Add",
+        "no": "No",
+        "yes": "Yes",
+        "calendar": {
+            "days": "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+            "months": "January,February,March,April,May,June,July,August,September,October,November,December"
+        },
+        "no-data": "No data found",
+        "records-per-page": "Records per page",
+        "dashboard": "Dashboard",
+        "delete-confirm": "Are you sure you want to delete this record ({id})?",
+        "delete-confirm-2": "Are you sure you want to delete this record?",
+        "error-message": "Unexpected error. Please contact system administrator.",
+        "error-server-unavailable-message": "Server is unavailable. Please contact system administrator.",
+        "successfully-updated": "Record was successfully updated.",
+        "successfully-created": "Record was successfully created.",
+        "successfully-deleted": "Record was successfully deleted.",
+        "invalid-login-credentials": "Invalid login credentials.",
+        "form": {
+            "msg-is-required": "{field} is required.",
+            "msg-value-is-invalid": "Value \"{value}\" is invalid. Expected \"{type}\".",
+            "msg-max-number-of-char": "\"{field}\" cannot be longer than \"{nchar}\" characters.",
+            "msg-number-range": "\"{field}\" must be in the range ({min} - {max}).",
+            "msg-email-is-invalid": "Email is invalid.",
+            "msg-form-is-invalid": "Form is invalid."
+        },
+        "valid-from": "Valid from",
+        "valid-to": "Valid to",
+        "created-by": "Created by",
+        "last-updated-by": "Last updated by"
+    }
+}

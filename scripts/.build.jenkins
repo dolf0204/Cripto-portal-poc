@@ -1,0 +1,38 @@
+def appVersion = ''
+
+pipeline {
+
+  agent any
+
+  environment {
+    BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
+  }
+
+  options {
+    disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+  }
+
+  stages {
+    stage('Build static content') {
+      steps {
+        nodejs(configId: 'npmrc-nexus', nodeJSInstallationName: 'NodeJS 10.15.3') {
+        sh 'yarn install'
+        sh 'yarn version --patch'
+        sh 'yarn build'
+        script {
+          appVersion = sh(script: """grep "version" package.json | awk -F '"' '{print \$4}'""", returnStdout: true).trim()
+        }
+        sh 'yarn dist_to_nexus'
+        sh 'git push --tags && git push'
+        }
+      }
+    }
+    stage('Invoke deploy pipeline'){
+      steps {
+        echo "Invoke ansible deploy of $BRANCH_NAME with frontend_version: ${appVersion}"
+        build job: "BOILERPLATE-deploy ${BRANCH_NAME}", wait: false, parameters: [[$class: 'StringParameterValue', name: 'frontendVersion', value: "$appVersion" ], [$class: 'StringParameterValue', name: 'BRANCH_NAME', value: "$BRANCH_NAME" ]]
+      }
+    }
+  }
+}

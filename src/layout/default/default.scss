@@ -1,0 +1,9 @@
+@import "@/styles/quasar.variables.scss";
+
+.default-layout {
+    @include background;
+
+    .page-wrapper {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,62 @@
+<div class="b-table">
+        <q-table
+            :grid="showAsCards"
+            :class="{'hide-bottom': hideBottom}"
+            :title="title"
+            :data="data"
+            :loading="loading"
+            :columns="columnsDefinition"
+            @request="fetch"
+            color="primary"
+            :flat="tableStyle.flat"
+            :bordered="tableStyle.bordered"
+            :dense="tableStyle.dense"
+            :no-data-label="$t('general.no-data')"
+            :rows-per-page-label="$t('general.no-data')"
+            :rows-per-page-options="rowsPerPageList"
+            :pagination.sync="paginationObject"
+        >
+            <template v-if="showHeader" #top-left>
+                <div class="table-title text-primary">
+                    <q-icon v-if="titleIcon" :name="titleIcon"></q-icon>
+                    {{title}}
+                </div>
+            </template>
+            <template v-if="hasSlotRowEnd" #header="props">
+                <q-tr :props="props">
+                  <q-th
+                    v-for="col in props.cols"
+                    :key="col.name"
+                    :props="props"
+                  >
+                    {{ col.label }}
+                  </q-th>
+                  <q-th auto-width />
+                </q-tr>
+            </template>
+
+            <template #item="props">
+                <slot :record="props.row" name="card">
+                </slot>
+            </template>
+
+            <template v-if="hasSlotRowEnd" #body="props">
+                    <q-tr :props="props">
+                        <q-td
+                            v-for="col in props.cols"
+                            :key="col.name"
+                            :props="props"
+                        >
+                            <slot :record="props.row" :name="`col-${col.name}`">
+                                {{ col.value }}
+                            </slot>
+                        </q-td>
+                        <q-td auto-width>
+                            <slot :record="props.row" name="row-end"></slot>
+                        </q-td>
+                    </q-tr>
+            </template>
+            <template v-if="hidePagination" #pagination>
+            </template>
+        </q-table>
+</div>

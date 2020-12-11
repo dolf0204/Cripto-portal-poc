@@ -1,0 +1,16 @@
+<div class="expansion-item">
+    <q-expansion-item  header-class="text-white" :header-inset-level="level">
+        <template v-slot:header>
+          <q-item-section avatar>
+            <q-icon color="accent" :name="icon" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>{{ $t(title) }}</q-item-label>
+            <q-item-label v-if="caption" caption>{{ $t(caption)  }}</q-item-label>
+          </q-item-section>
+
+        </template>
+        <slot></slot>
+    </q-expansion-item>
+</div>

@@ -1,0 +1,20 @@
+@import "@/styles/theme.scss";
+
+.navbar {
+    .header {
+        color: $primary;
+        background-color: $light;
+    }
+
+    .header-content {
+        border-bottom: 0.2rem solid $primary;
+    }
+
+    .transparent.header {
+        box-shadow: none;
+    }
+
+    .transparent .header-content{
+        border-bottom: none;
+    }
+}

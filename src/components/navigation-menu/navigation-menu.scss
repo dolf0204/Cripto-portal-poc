@@ -1,0 +1,13 @@
+@import "@/styles/quasar.scss";
+
+$primary-saturate: saturate($primary, 70%);
+$primary-darker: darken($primary, 5%);
+
+
+.drawer {
+    aside {
+        background-color: $primary;
+        background: radial-gradient(circle, $primary-saturate 0%, $primary-darker 70%);
+
+    }
+}

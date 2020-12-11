@@ -1,0 +1,20 @@
+<div class="b-select">
+    <q-select
+        ref="b-select"
+        :outlined="inputStyle.outlined"
+        :dense="inputStyle.dense"
+        :use-input="inputStyle.useInput"
+        @filter="onFilter"
+        v-model="model"
+        :rules="getRules()"
+        :hide-selected="inputStyle.hideSelected"
+        :clearable="inputStyle.clearable"
+        :options="options"
+        :multiple="inputStyle.multiple"
+        :disable="inputStyle.disable"
+        :readonly="inputStyle.readonly"
+        :label="inputStyle.label"
+        @input="onChange"
+    >
+  </q-select>
+</div>

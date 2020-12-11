@@ -1,0 +1,52 @@
+
+@import "@/styles/theme.scss";
+
+$negative1: lighten($negative, 20%);
+$negative2: lighten($negative, 30%);
+
+$warning1: lighten($warning, 20%);
+$warning2: lighten($warning, 30%);
+
+$info1: lighten($info, 20%);
+$info2: lighten($info, 30%);
+
+.info-region {
+    margin-bottom: 2rem;
+
+    .bg-card-negative {
+        background: $negative;
+        background: linear-gradient(90deg, $negative 0%, $negative1 70%, $negative2 90%);
+    }
+
+    .bg-card-warning {
+        background: $warning;
+        background: linear-gradient(90deg, $warning 0%, $warning1 70%, $warning2 90%);
+    }
+
+    .bg-card-info {
+        background: $info;
+        background: linear-gradient(90deg, $info 0%, $info1 70%, $info2 90%);
+    }
+
+    .icon-wrap {
+        padding: 0.5rem;
+    }
+
+    .text {
+        padding: 0.5rem;
+
+        .text-caption {
+            font-size: 1rem;
+        }
+    }
+
+    .icon-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .icon {
+        font-size: 4.5rem;
+    }
+}

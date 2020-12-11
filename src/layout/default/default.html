@@ -1,0 +1,15 @@
+<div class="default-layout">
+  <q-layout view="lHh Lpr lFf">
+    <app-bar @menu-click="toogleDrawer"></app-bar>
+
+    <navigation-menu :open="leftDrawerOpen" @update:open="toogleDrawer">
+    </navigation-menu>
+
+    <q-page-container>
+      <div class="page-wrapper">
+        <breadcrumbs />
+        <router-view></router-view>
+      </div>
+    </q-page-container>
+  </q-layout>
+</div>

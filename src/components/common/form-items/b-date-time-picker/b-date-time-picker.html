@@ -1,0 +1,30 @@
+<div class="date-time-picker">
+    <q-input
+        :outlined="inputStyle.outlined"
+        :dense="inputStyle.dense"
+        v-model="model"
+        :rules="getRules()"
+        :disable="inputStyle.disable"
+        :clearable="inputStyle.clearable"
+        :readonly="inputStyle.readonly"
+        :label="inputStyle.label"
+        @click="onClick"
+        @change="onChange"
+    >
+        <template v-if="hasMaskDate" v-slot:[datePickerPosition]>
+          <q-icon name="fal fa-calendar" class="cursor-pointer">
+            <q-popup-proxy :ref="popupRefs.datePopup" transition-show="scale" transition-hide="scale">
+              <q-date :options="dateOptions" :locale="inputStyle.locale" v-model="model" @input="onChange" :mask="mask" />
+            </q-popup-proxy>
+          </q-icon>
+        </template>
+
+        <template v-if="hasMaskTime" v-slot:[timePickerPosition]>
+            <q-icon name="fal fa-clock" class="cursor-pointer">
+              <q-popup-proxy :ref="popupRefs.timePopup" transition-show="scale" transition-hide="scale">
+                <q-time v-model="model" @input="onChange" :mask="mask" :format24="format24" />
+              </q-popup-proxy>
+            </q-icon>
+          </template>
+  </q-input>
+</div>

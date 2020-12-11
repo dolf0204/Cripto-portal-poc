@@ -1,0 +1,91 @@
+<div class="b-record-editor">
+    <b-card-region v-if="model" :title="title" :title-icon="titleIcon">
+        <template v-slot:buttons-right>
+            <q-btn
+                @click="back"
+                class="desktop-md"
+                unelevated
+                no-caps
+                icon="fal fa-chevron-left"
+                :label="$t('general.cancel')"
+                color="primary"
+            ></q-btn>
+            <q-btn v-if="isCreate"
+                @click="save"
+                class="desktop-md"
+                unelevated
+                no-caps
+                icon="fal fa-plus"
+                :label="$t('general.add')"
+                color="primary"
+            ></q-btn>
+            <q-btn v-else
+                @click="save"
+                class="desktop-md"
+                unelevated
+                no-caps
+                icon="fal fa-save"
+                :label="$t('general.apply')"
+                color="primary">
+            </q-btn>
+        </template>
+        <template>
+            <q-item>
+                <div class="fit row justify-start items-center">
+                    <q-form ref="formEditor" class="col-12 col-lg-7">
+                        <b-form-row v-for="(rec) in recordDefinition"  :label="rec.label">
+                            <template v-slot:item>
+                                <component
+                                    :options="rec.options"
+                                    :mask="rec.dateTimeformat"
+                                    :type="rec.type"
+                                    @input="numberFormat($event, rec.propName)"
+                                    :disable="rec.disable"
+                                    :styleProps="{disable: rec.disable}"
+                                    outlined
+                                    :rules="getRules(rec)"
+                                    dense
+                                    v-model="model[rec.propName]"
+                                    :is="rec.component">
+                                </component>
+                            </template>
+                        </b-form-row>
+                    </q-form>
+                </div>
+            </q-item>
+            <q-page-sticky position="bottom-right" :offset="[18, 18]">
+                <q-btn
+                    v-if="isCreate"
+                    @click="save"
+                    unelevated
+                    no-caps
+                    fab
+                    class="mobile-md"
+                    icon="fal fa-plus"
+                    color="primary"
+                />
+                <q-btn
+                    v-else
+                    @click="save"
+                    unelevated
+                    no-caps
+                    fab
+                    class="mobile-md"
+                    icon="fal fa-save"
+                    color="primary"
+                />
+            </q-page-sticky>
+            <q-page-sticky position="bottom-left" :offset="[18, 18]">
+                <q-btn
+                    @click="back"
+                    unelevated
+                    no-caps
+                    fab
+                    class="mobile-md"
+                    icon="fal fa-chevron-left"
+                    color="primary"
+                />
+            </q-page-sticky>
+        </template>
+    </b-card-region>
+</div>

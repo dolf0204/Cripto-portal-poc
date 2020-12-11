@@ -1,0 +1,36 @@
+.helpers-docs {
+    .format-title {
+        margin-bottom: 2rem;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        min-height: 10rem;
+    }
+
+    .example-th {
+        transform: translateX(-25%);
+        margin: 0;
+        width: 50%;
+        font-size: 2rem;
+        text-align: end;
+    }
+    .example {
+        margin: 0;
+        width: 50%;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .info {
+        ul {
+            margin: 0;
+        }
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+}

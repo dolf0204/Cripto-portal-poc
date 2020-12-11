@@ -1,0 +1,44 @@
+<div class="login-form">
+    <div class="col">
+        <q-form
+            @submit="onSubmit"
+            class="q-gutter-lg"
+        >
+            <q-card flat bordered>
+                <q-card-section>
+                    <div class="text-h6">{{appName}} - {{$t("login.title")}}</div>
+                </q-card-section>
+                <q-separator />
+                <q-card-section>
+                <q-card-section>
+                    <q-input
+                        filled
+                        v-model="model.username"
+                        :label="$t('login.username-propmt')"
+                    >
+                        <template v-slot:prepend>
+                            <q-icon name="fal fa-user" />
+                        </template>
+                    </q-input>
+                </q-card-section>
+                <q-card-section>
+                    <q-input
+                        filled
+                        type="password"
+                        v-model="model.password"
+                        :label="$t('login.password-propmt')"
+                    >
+                        <template v-slot:prepend>
+                            <q-icon  name="fal fa-key" />
+                        </template>
+                    </q-input>
+                </q-card-section>
+            </q-card-section>
+                <q-separator />
+                <q-card-actions>
+                    <q-btn class="full-width" unelevated type="submit" size="lg" :label="$t('login.btn-login')" color="primary" />
+                </q-card-actions>
+            </q-card>
+        </q-form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="navigation-item">
+  <div v-if="!hasChildNode">
+    <q-item :inset-level="level" :class="[{'active': isActive}]" clickable @click="navigateTo" :tag="tag" :target="target" :href="url">
+      <q-item-section avatar>
+        <q-icon :name="icon" />
+      </q-item-section>
+      <q-item-section>
+        <q-item-label >{{ $t(title) }}</q-item-label>
+        <q-item-label v-if="caption"  caption>{{ $t(caption)  }}</q-item-label>
+      </q-item-section>
+    </q-item>
+  </div>
+  <div v-else >
+    <expension-item :title="title" :caption="caption" :icons="icons" :level="level">
+      <navigation-item
+        v-for="item in childNodes"
+        :icons="item.icons"
+        :title="item.title"
+        :caption="item.caption"
+        :childNodes="item.childNodes"
+        :link="item.link"
+        :level="nextLevel">
+      </navigation-item>
+    </expension-item>
+  </div>
+</div>

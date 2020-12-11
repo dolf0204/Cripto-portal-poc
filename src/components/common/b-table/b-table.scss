@@ -1,0 +1,28 @@
+@import "@/styles/theme.scss";
+
+.b-table {
+    /deep/ .table-title {
+        font-size: 1.7rem;
+    }
+
+    /deep/ .q-btn .q-icon {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .q-table__bottom--nodata {
+        color: $primary;
+    }
+
+    .hide-bottom .q-table__bottom.row {
+        display: none;
+    }
+
+    /deep/ tbody .q-tr:hover {
+        background-color: lighten($primary, 50);
+    }
+}

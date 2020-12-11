@@ -1,0 +1,26 @@
+<div class="info-region">
+    <div class="flex flex-center">
+        <div class="fit row wrap justify-center">
+            <div class="col">
+                <q-card :class="{'bg-card-negative': isError, 'bg-card-warning': isWarning, 'bg-card-info': isInfo }" >
+                    <q-card-section horizontal>
+                        <div v-if="isError" class="icon-wrap">
+                            <q-icon class="icon" color="accent" name="fal fa-times-octagon"></q-icon>
+                        </div>
+                        <div v-if="isWarning" class="icon-wrap">
+                            <q-icon class="icon" color="accent" name="fal fa-exclamation-triangle"></q-icon>
+                        </div>
+                        <div v-if="isInfo" class="icon-wrap">
+                            <q-icon class="icon" color="accent" name="fal fa-info-circle"></q-icon>
+                        </div>
+                        <div class="flex flex-center text">
+                            <slot name="message">
+                                <div class="text-caption">{{ message }}</div>
+                            </slot>
+                        </div>
+                    </q-card-section>
+                </q-card>
+            </div>
+        </div>
+    </div>
+</div>

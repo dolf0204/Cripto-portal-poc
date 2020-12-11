@@ -1,0 +1,59 @@
+<div class="helpers-docs">
+    <b-card-region class="format-title" strip title="Formats (bissCore)">
+        <info-region>
+            <template #message>
+                <p class="info">
+                    example of installed Vue filters:
+                    <ul>
+                        <li>formatThousands</li>
+                        <li>formatDate</li>
+                        <li>duration</li>
+                    </ul>
+                </p>
+            </template>
+        </info-region>
+    </b-card-region>
+    <div class="row justify-between">
+        <div class="col-12 col-md-6 q-col-gutter-sm">
+            <b-card-region class="card" title="Format thousands">
+                <div class="container row justify-center">
+                    <p class="example-th">
+                        {{ 1232000 | formatThousands }}
+                    </p>
+                    <p class="example-th">
+                        {{ 343000 | formatThousands }}
+                    </p>
+                </div>
+            </b-card-region>
+        </div>
+        <div class="col-12 col-md-6 q-col-gutter-sm">
+            <b-card-region class="card" title="Format duration">
+                <div class="container row justify-center">
+                    <p class="example">
+                        {{ dates | duration }}
+                    </p>
+                </div>
+            </b-card-region>
+        </div>
+    </div>
+    <div class="row justify-between">
+        <div class="col-12 col-md-6 q-col-gutter-sm">
+            <b-card-region class="card" title="Format date">
+                <div class="container row justify-center">
+                    <p class="example">
+                        {{ now | formatDate }}
+                    </p>
+                </div>
+            </b-card-region>
+        </div>
+        <div class="col-12 col-md-6 q-col-gutter-sm">
+            <b-card-region class="card" title="Format date - custom format">
+                <div class="container row justify-center">
+                    <p class="example">
+                        {{ now | formatDate('DD.MM.YYYY') }}
+                    </p>
+                </div>
+            </b-card-region>
+        </div>
+    </div>
+</div>

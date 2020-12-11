@@ -1,0 +1,31 @@
+
+$primary   : #17355d;
+$secondary : #fff;
+$accent    : #fff;
+
+$bgcolor: #eeeeee;
+
+$dark      : #181413;
+$light     : #fff;
+$grey      : #b0bec4;
+
+$positive  : #21BA45;
+$negative  : #C10015;
+$info      : #31CCEC;
+$warning   : #F2C037;
+
+// export for ts/js import:
+:export {
+    primary: $primary;
+    secondary: $secondary;
+    light: $light;
+    accent: $accent;
+    dark: $dark;
+    grey: $grey;
+    positive: $positive;
+    negative: $negative;
+    info: $info;
+    warning: $warning;
+    bgcolor: $bgcolor;
+}
+

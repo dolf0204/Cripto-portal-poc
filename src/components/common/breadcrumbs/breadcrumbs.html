@@ -1,0 +1,24 @@
+<div class="breadcrumbs">
+    <div class="flex flex-center q-mb-md">
+        <div class="fit row wrap justify-center">
+            <div class="col-12">
+                <q-card>
+                <q-item>
+                    <q-item-section>
+                        <q-toolbar color="grey" inset>
+                        <q-breadcrumbs active-color="primary">
+                            <q-breadcrumbs-el
+                                v-for="(breadcrumb, idx) in breadcrumbs"
+                                :key="idx"
+                                :label="breadcrumb.label"
+                                :icon="breadcrumb.icon"
+                            />
+                        </q-breadcrumbs>
+                        </q-toolbar>
+                    </q-item-section>
+                </q-item>
+                </q-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+@import "@/styles/theme.scss";
+
+.expansion-item {
+    .q-item__label--caption {
+        color: inherit;
+    }
+    .q-item__section--side {
+        color: inherit;
+    }
+}

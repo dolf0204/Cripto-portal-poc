@@ -1,0 +1,24 @@
+.b-card-region {
+    .strip {
+        background: transparent;
+        box-shadow: none;
+
+        .item {
+            padding-left: 0;
+        }
+    }
+    .title-icon {
+        margin: 0 0.5rem;
+    }
+    .items {
+        overflow: auto;
+    }
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 99%;
+        white-space: nowrap;
+    }
+
+    margin-bottom: 5rem;
+}

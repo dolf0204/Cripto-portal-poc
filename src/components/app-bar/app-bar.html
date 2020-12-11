@@ -1,0 +1,27 @@
+<div class="app-bar">
+    <navbar>
+        <q-toolbar>
+            <q-btn
+                flat
+                dense
+                round
+                @click="onMenuClick"
+            >
+                <q-icon name="fal fa-bars"></q-icon>
+            </q-btn>
+
+            <q-toolbar-title>
+                {{appName}}
+            </q-toolbar-title>
+
+            <q-btn
+                flat
+                dense
+                round
+                @click="onLogoutClick"
+            >
+                <q-icon name="fal fa-power-off"></q-icon>
+            </q-btn>
+        </q-toolbar>
+  </navbar>
+</div>

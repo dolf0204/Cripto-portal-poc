@@ -1,0 +1,24 @@
+.q-btn--rectangle {
+    border-radius: 0;
+}
+
+.q-btn--rounded {
+    border-radius: 2.8rem;
+}
+
+.desktop-md {
+    display: block;
+}
+
+.mobile-md {
+    display: none;
+}
+
+@media (max-width: $breakpoint-md-min) {
+    .desktop-md {
+        display: none;
+    }
+    .mobile-md {
+        display: block;
+    }
+}
