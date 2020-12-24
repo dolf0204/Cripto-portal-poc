@@ -1,0 +1,22 @@
+cd ..
+mkdir "naziv direktorija"
+cp -r boilerplate-fe/. #NEW_PROJECT_DIR#
+
+cd #NEW_PROJECT_DIR#
+rm -rf .git
+
+rm -rf node_modules
+git init
+*U bitBucketu- + sa strane- create repository*
+git remote add origin git@bitbucket.org:Bisshr/xxxx.git
+
+git branch --set-upstream-to=origin/master
+git pull
+git add .
+git commit -a
+git push
+yarn install 
+yarn serve
+
+
+chromium-browser --disable-web-security --user-data-dir="[some directory here]"

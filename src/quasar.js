@@ -42,6 +42,7 @@ import {
     Notify,
     QSelect,
     QFab,
+    Loading,
     QFabAction,
     QPageSticky,
     QTd,
@@ -101,6 +102,7 @@ Vue.use(Quasar, {
         QPageSticky,
         QTd,
         QTr,
+        Loading,
         QTh,
         QDialog,
         QSkeleton,
@@ -112,5 +114,6 @@ Vue.use(Quasar, {
         LoadingBar,
         Notify,
         Dialog,
+        Loading,
     },
 });

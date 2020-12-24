@@ -6,10 +6,16 @@ type TypeDictionary1 = <T, K>(...args: T[]) => CallPromise<K>
 
 type TypeDictionary2 = <K>(...args: number[]) => CallPromise<K>
 
+type TypeDictionary3 = (payload?: any, param?: any) => CallPromise<any>
+
 interface Dictionary {
-    [key: string]: TypeDictionary1 | TypeDictionary2;
+    [key: string]: TypeDictionary1 | TypeDictionary2 | TypeDictionary3;
 }
 
+// interface Dictionary {
+//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//     [key: string]: (payload?: any, param?: any) => Promise<any | string | number | Date>;
+// }
 interface Errors {
     message: string;
 }

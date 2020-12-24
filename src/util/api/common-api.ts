@@ -18,17 +18,23 @@ const getData = (response: ResponseObject) : PlainObject | PlainObject[] => {
         // eslint-disable-next-line no-throw-literal
         throw { error, response };
     }
-    return response.data;
+    return response.data || response;
 };
 
 const applyHeaders = (extraHeaders?: Record<string, string>): Record<string, string> => {
+
     const { cookie } = LoginCookie;
+    const API_KEY_CRIPTO_COMPARE = process.env.VUE_APP_CRIPTO_KEY;
+
     let httpHeaders: {[key: string]: string } = {
         "Content-Type": "application/json",
+
     };
 
     if (cookie && cookie.tokenValue) {
-        httpHeaders.Authorization = `Bearer ${cookie.tokenValue}`;
+        // httpHeaders.Authorization = `Bearer ${cookie.tokenValue}`;
+        httpHeaders.Authorization = `Apikey ${API_KEY_CRIPTO_COMPARE}`;
+
     }
 
     if (extraHeaders) {

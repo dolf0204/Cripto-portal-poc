@@ -1,4 +1,5 @@
 import { Component, Vue } from "@/biss-core-wrapper";
+import token from "@/components/login-form/token";
 import { LoginCookie } from "@/util";
 import { ApiError } from "@/util/api/common-api";
 import WithRender from "./app.html";
@@ -8,6 +9,9 @@ const { VUE_APP_LOG_ERROR: logError, NODE_ENV } = process.env;
 @WithRender
 @Component
 class App extends Vue {
+
+    // @setToken()
+    // private setToken!: (token: string) => string
 
     private globalErrorHandler(apiError: ApiError) {
         if (this.$route.path !== "/login" && apiError.response && apiError.response.status === 401) {
@@ -41,6 +45,8 @@ class App extends Vue {
 
         if (!LoginCookie.cookie) {
             this.$router.push("/login");
+        } else {
+            LoginCookie.setLoginCookie(token);
         }
 
         // prevent root slash

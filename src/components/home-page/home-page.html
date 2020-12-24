@@ -1,0 +1,11 @@
+ <div class="home-page">
+ <b-table
+    title="Top 100 cripto currencies"
+    :fetchData="fetchData"
+    :columns="criptoColumns()"
+    :pagination.sync="initialPagination"
+    @pageChange="pageChange"
+    >
+
+</b-table>
+</div>
