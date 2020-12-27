@@ -1,6 +1,7 @@
 import { Component, Prop, Vue } from "@/biss-core-wrapper";
 import criptoApi from "@/dto/cripto-currency/cripto-currency-api";
 import CriptoCurrencyResponse from "@/dto/cripto-currency/cripto-currency-response";
+import CriptoCurrencyTimeStampResponse from "@/dto/cripto-currency/cripto-currency-time-stamp-response";
 import BTable, { QColumn } from "@/components/common/b-table/b-table";
 import WithRender from "./home-page.html";
 import "./home-page.scss";
@@ -27,10 +28,15 @@ class HomePage extends Vue {
         rowsPerPage: 10,
     }
 
-    private data!: any;
+    private data!: CriptoCurrencyResponse;
 
     @criptoApi("getCriptoCompareCriptoCurrencies")
-    private getDataApi!: () => Promise<any>;
+    private getDataApi!: () => Promise<CriptoCurrencyResponse>;
+
+    @criptoApi("getCriptoCompareCriptoCurrenciesTimeStamps")
+    private getTimeStampDataApi!: () => Promise<CriptoCurrencyTimeStampResponse>;
+
+    private timeStampData!: CriptoCurrencyTimeStampResponse;
 
     private pageChange(page: ClientSitePagination) {
         this.initialPagination.page = page.page;
@@ -67,11 +73,19 @@ class HomePage extends Vue {
 
         this.data = await this.getDataApi();
 
+        this.timeStampData = await this.getTimeStampDataApi();
+
+        debugger;
+
         console.log(this.data);
 
         this.$q.loading.hide();
 
-        return this.data.Data;
+        const responseObjectTransform = this.data.data.criptoCurrency;
+
+        debugger;
+
+        return responseObjectTransform;
 
     }
 

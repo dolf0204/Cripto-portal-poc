@@ -7,5 +7,17 @@
     @pageChange="pageChange"
     >
 
+    <template v-slot:row-action="{record}">
+        <div>
+          <q-btn
+            unelevated
+            @click="getGraph(record)"
+            no-caps
+            label="Graph"
+            color="green"
+          />
+        </div>
+      </template>
+
 </b-table>
 </div>
