@@ -11,7 +11,8 @@ class CriptoCurrencyTimeStampResponseObject extends Dto {
         return transformer.plainToClass(CriptoCurrencyTimeStamp, criptoCurrencyList);
 
     })
-    public criptoCurrency: CriptoCurrencyTimeStamp[] = [];
+    // public criptoCurrency: CriptoCurrencyTimeStamp[] = [];
+    public criptoCurrency: CriptoCurrencyTimeStamp = new CriptoCurrencyTimeStamp();
 
 }
 

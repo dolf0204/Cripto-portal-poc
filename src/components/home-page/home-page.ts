@@ -1,7 +1,10 @@
-import { Component, Prop, Vue } from "@/biss-core-wrapper";
+import {
+    Component, Vue,
+} from "@/biss-core-wrapper";
 import criptoApi from "@/dto/cripto-currency/cripto-currency-api";
 import CriptoCurrencyResponse from "@/dto/cripto-currency/cripto-currency-response";
 import CriptoCurrencyTimeStampResponse from "@/dto/cripto-currency/cripto-currency-time-stamp-response";
+import CriptoCurrencyGraph from "@/components/cripto-currency-graph/cripto-currency-graph";
 import BTable, { QColumn } from "@/components/common/b-table/b-table";
 import WithRender from "./home-page.html";
 import "./home-page.scss";
@@ -17,6 +20,7 @@ interface ClientSitePagination {
 @Component({
     components: {
         BTable,
+        CriptoCurrencyGraph,
     },
 })
 class HomePage extends Vue {
@@ -38,7 +42,12 @@ class HomePage extends Vue {
 
     private timeStampData!: CriptoCurrencyTimeStampResponse;
 
+    private currencySymbol: string | null = null;
+
+    private currencyGraphKey: string = this.$_.uniqueId();
+
     private pageChange(page: ClientSitePagination) {
+        this.currencyGraphKey = this.$_.uniqueId();
         this.initialPagination.page = page.page;
     }
 
@@ -75,15 +84,9 @@ class HomePage extends Vue {
 
         this.timeStampData = await this.getTimeStampDataApi();
 
-        debugger;
-
-        console.log(this.data);
-
         this.$q.loading.hide();
 
         const responseObjectTransform = this.data.data.criptoCurrency;
-
-        debugger;
 
         return responseObjectTransform;
 

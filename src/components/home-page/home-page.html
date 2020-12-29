@@ -7,16 +7,11 @@
     @pageChange="pageChange"
     >
 
-    <template v-slot:row-action="{record}">
-        <div>
-          <q-btn
-            unelevated
-            @click="getGraph(record)"
-            no-caps
-            label="Graph"
-            color="green"
-          />
-        </div>
+    <template v-slot:row-end="{record}">
+        <div class="container">
+            <cripto-currency-graph :currencySymbol ="record.symbol" :key="currencyGraphKey"/>
+          </div>
+
       </template>
 
 </b-table>

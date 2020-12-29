@@ -3,10 +3,10 @@ import Dto from "../dto";
 
 class CriptoCurrencyTimeStamp extends Dto {
 
-    @Expose({ defaultValue: null })
+    @Expose({ defaultValue: null, name: "time" })
     public time: number | null = null;
 
-    @Expose({ defaultValue: null })
+    @Expose({ defaultValue: null, name: "open" })
     public open: number | null = null;
 
 }
