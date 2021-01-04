@@ -1,0 +1,18 @@
+<div class="home-page">
+    <b-table
+       title="Top 100 cripto currencies"
+       :fetchData="fetchData"
+       :columns="criptoColumns()"
+       :pagination.sync="initialPagination"
+       @pageChange="pageChange"
+       >
+
+       <template v-slot:row-end="{record}">
+           <div class="container">
+               <cripto-currency-graph :currencySymbol="record.symbol" :key="currencyGraphKey"/>
+             </div>
+
+         </template>
+
+   </b-table>
+   </div>

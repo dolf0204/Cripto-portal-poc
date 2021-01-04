@@ -19,16 +19,14 @@ class CriptoCurrencyGraph extends Vue {
 
     private chart: LineChart = new LineChart();
 
-    @Prop({ default: Array })
+    @Prop({ default: [], type: () => Array })
     private data: number[] = [];
 
-    @Prop({ default: null })
+    @Prop({ required: true, type: () => String })
     private currencySymbol!: string;
 
-    @Prop({ default: Array })
+    @Prop({ default: [], type: () => Array })
     private labels: string[] = [];
-
-    private currency: string = "BTC";
 
     @criptoApi("getCriptoCompareCriptoCurrenciesTimeStamps")
     private getTimeStampDataApi!: (currency: string) => Promise<CriptoCurrencyTimeStampResponse>;
@@ -37,6 +35,14 @@ class CriptoCurrencyGraph extends Vue {
         responsive: true,
         legend: { display: false },
         maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: "USD",
+                },
+            }],
+        },
     }
 
     private get chartData() {
@@ -46,6 +52,7 @@ class CriptoCurrencyGraph extends Vue {
                 {
                     backgroundColor: theme.primary,
                     data: this.data,
+
                 },
             ],
         };
