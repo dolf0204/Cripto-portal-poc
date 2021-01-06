@@ -1,18 +1,18 @@
-<div class="home-page">
-    <b-table
-       title="Top 100 cripto currencies"
-       :fetchData="fetchData"
-       :columns="criptoColumns()"
-       :pagination.sync="initialPagination"
-       @pageChange="pageChange"
-       >
+<div class="block-chain-data">
+   <block-chain-table>
+    <template v-slot:row-action="{record}">
+        <q-btn
+          unelevated
+          @click="showChart(record)"
+          no-caps
+          label="Chart"
+          color="blue"
+        />
+      </template>
+</block-chain-table>
 
-       <template v-slot:row-end="{record}">
-           <div class="container">
-               <cripto-currency-graph :currencySymbol="record.symbol" :key="currencyGraphKey"/>
-             </div>
-
-         </template>
-
-   </b-table>
-   </div>
+    <cripto-currency-graph
+    v-if="chartOpen"
+    :currencySymbol="symbol"
+    :key="criptoCurrencyGraphKey"/>
+</div>

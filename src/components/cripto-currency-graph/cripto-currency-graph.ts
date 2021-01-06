@@ -67,6 +67,8 @@ class CriptoCurrencyGraph extends Vue {
         data.map((currency) => this.labels?.push((this.$_.toString(moment.unix(currency.time!).format("MM/DD/YYYY")))));
         data.map((currency) => this.data?.push((currency.open!)));
 
+        debugger;
+
         this.loaded = true;
 
     }

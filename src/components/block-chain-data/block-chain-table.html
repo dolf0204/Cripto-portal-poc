@@ -1,0 +1,15 @@
+<div class="block-chain-table">
+    <b-table
+       title="Top 100 cripto currencies"
+       :fetchData="fetchData"
+       :columns="criptoColumns()"
+       :pagination.sync="initialPagination"
+       @pageChange="pageChange"
+       >
+
+       <template v-slot:row-end="{record}">
+        <slot name="row-action" :record="record"></slot>
+      </template>
+
+   </b-table>
+   </div>
