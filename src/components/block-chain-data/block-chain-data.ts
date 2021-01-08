@@ -22,7 +22,7 @@ class BlockChainData extends Vue {
     private criptoCurrencyGraphKey: string = this.$_.uniqueId();
 
     private showChart(row: CriptoCurrency) {
-        debugger;
+
         this.criptoCurrencyGraphKey = this.$_.uniqueId();
         this.symbol = row.symbol;
         this.chartOpen = true;
