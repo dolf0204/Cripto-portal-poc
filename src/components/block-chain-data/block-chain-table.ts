@@ -7,6 +7,7 @@ import CriptoCurrencyTimeStampResponse from "@/dto/cripto-currency/cripto-curren
 import CriptoCurrencyGraph from "@/components/cripto-currency-graph/cripto-currency-graph";
 import BTable, { QColumn } from "@/components/common/b-table/b-table";
 import WithRender from "./block-chain-table.html";
+import "./block-chain-table.scss";
 
 interface ClientSitePagination {
     sortBy: string;

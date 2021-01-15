@@ -19,13 +19,11 @@ class CriptoCurrencyGraph extends Vue {
 
     private chart: LineChart = new LineChart();
 
-    @Prop({ default: [], type: () => Array })
     private data: number[] = [];
 
-    @Prop({ required: true, type: () => String })
+    @Prop({ required: true, type: String })
     private currencySymbol!: string;
 
-    @Prop({ default: [], type: () => Array })
     private labels: string[] = [];
 
     @criptoApi("getCriptoCompareCriptoCurrenciesTimeStamps")
@@ -43,6 +41,12 @@ class CriptoCurrencyGraph extends Vue {
                 },
             }],
         },
+
+        title: {
+            display: true,
+            text: `Currency: ${this.currencySymbol}`,
+
+        },
     }
 
     private get chartData() {
@@ -55,6 +59,7 @@ class CriptoCurrencyGraph extends Vue {
 
                 },
             ],
+
         };
     }
 
@@ -64,8 +69,8 @@ class CriptoCurrencyGraph extends Vue {
         const { responseData } = await this.getTimeStampDataApi(this.currencySymbol);
         const { data } = responseData;
 
-        data.map((currency) => this.labels?.push((this.$_.toString(moment.unix(currency.time!).format("MM/DD/YYYY")))));
-        data.map((currency) => this.data?.push((currency.open!)));
+        data.map((currency) => this.labels?.push((this.$_.toString(moment.unix(currency.time ? currency.time : 0).format("MM/DD/YYYY")))));
+        data.map((currency) => this.data?.push((currency.open ? currency.open : 0)));
 
         this.loaded = true;
 
